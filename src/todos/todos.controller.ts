@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common'
 import { TodosService } from './todos.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import { Todo } from './entities/todo.entity';
 
 @Controller('todos')
 export class TodosController {
@@ -11,11 +12,10 @@ export class TodosController {
   create(@Body() createTodoDto: CreateTodoDto) {
     return this.todosService.create(createTodoDto);
   }
-
+  
   @Get()
-  async findAll() {
-    const list = await this.todosService.findAll();
-    return list.map(({ id, title }) => ({ id, title}));
+  async findAll(): Promise<Pick<Todo, 'id' | 'title' >[]> {
+    return this.todosService.findAll();
   }
 
   @Get(':id')
