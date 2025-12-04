@@ -54,7 +54,7 @@ export class AuthService {
                 access_token: newAccessToken,
                 refresh_token: newRefreshToken,
             };
-        } catch (err) {2
+        } catch (err) {
             throw new UnauthorizedException('Refresh token expired or invalid');
         }
     }

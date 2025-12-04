@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
-
+import { RealTimeComModule } from './real-time-com/real-time-com.module';
 
   
 @Module
@@ -26,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
     TodosModule,
     UserModule,
     AuthModule,
+    RealTimeComModule,
   ], 
   controllers: [AppController], 
   providers: [AppService], 
